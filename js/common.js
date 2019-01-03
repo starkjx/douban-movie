@@ -11,16 +11,12 @@ var top250 = {
   },
   bind: function(){
     var _this = this;
-    this.$element.on('scroll', function(){
-      console.log('scrolling');
+    _this.$main.scroll(function(){
+      if(_this.isToBottom(_this.$container, _this.$main) && !_this.isLoading && !_this.isFinish){
+        console.log('toBottom');
+        _this.start();
+      }
     });
-    // var _this = this;
-    // _this.$main.scroll(function(){
-    //   if(_this.isToBottom(_this.$container, _this.$main) && !_this.isLoading && !_this.isFinish){
-    //     console.log('toBottom');
-    //     _this.start();
-    //   }
-    // });
   },
   start: function(){
     var _this = this;
